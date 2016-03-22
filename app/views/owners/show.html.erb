@@ -18,3 +18,12 @@
     <li><%= link_to "Upload Your Pet's Info", new_owner_pet_path(@owner), class: "new" %></li>
   </ul>
 </header>
+
+<ul id="pets">
+  <%= @owner.pets.each do |pet| %>
+    <li>
+      <!-- This is strange behavior -->
+      <%= link_to pet.name, [@owner, pet] %>
+    </li>
+  <% end %>
+</ul>
