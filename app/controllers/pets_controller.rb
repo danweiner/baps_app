@@ -34,6 +34,13 @@ class PetsController < ApplicationController
     end
   end
 
+  def destroy
+    @pet.destroy
+    flash[:notice] = "Pet info has been deleted"
+
+    redirect_to @owner
+  end
+
   private
 
     def set_owner
