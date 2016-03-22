@@ -1,4 +1,12 @@
-<h1><%= @owner.name %></h1>
-  <p><%= @owner.city %></p>
+<header>
+  <h1><%= @owner.name %></h1>
+
+  <ul class="actions">
+    <li><%= link_to "Edit Your Profile", edit_owner_path(@owner), class: "edit" %></li>
+    <li><%= link_to "Delete Your Profile", owner_path(@owner), method: :delete, data: { confirm: "Are you sure you want to delete your profile?" }, class: "delete" %></li>
+  </ul>
+</header>
+
+<h2><%= @owner.city %></h2>
   <p><%= @owner.country %></p>
   <p><%= @owner.description %></p>

@@ -1,2 +1,13 @@
-<%= link_to "Create a Profile", new_owner_path %>
-
+<header>
+  <h1>BAPS Alumni</h1>
+  <ul class="actions">
+    <li><%= link_to "Create a Profile", new_owner_path, class: "new" %></li>
+  </ul>
+</header>
+<div id="owners">
+  <% @owners.each do |owner| %>
+    <h2><%= link_to owner.name, owner %></h2>
+    <p><%= owner.city %> <%= owner.country %>   </p>
+  <% end %>
+</div>
+<br>
