@@ -10,3 +10,11 @@
 <h2><%= @owner.city %></h2>
   <p><%= @owner.country %></p>
   <p><%= @owner.description %></p>
+
+<header>
+  <h2>BAPS Dogs</h2>
+
+  <ul class="actions">
+    <li><%= link_to "Upload Your Pet's Info", new_owner_pet_path(@owner), class: "new" %></li>
+  </ul>
+</header>

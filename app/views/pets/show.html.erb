@@ -1,0 +1,17 @@
+<div id="pet">
+  <header>
+    <h1><%= @owner.name %></h1>
+  </header>
+
+  <header>
+    <h2><%= @pet.name %></h2>
+  </header>
+
+    <ul>
+      <li>Age: <%= @pet.age %></li>
+      <li>Weight: <%= @pet.weight %> lbs.</li>
+      <li>Breed: <%= @pet.breed %></li>
+    </ul>
+
+  <%= simple_format(@pet.description) %>
+</div>

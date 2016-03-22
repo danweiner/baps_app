@@ -1,9 +1,9 @@
-<%= simple_form_for(@owner) do |f| %>  
+<%= simple_form_for(owner) do |f| %>  
   <%= f.input :name %>
   <%= f.input :city %>
   <!-- Why is country raising an error? -->
   <%= f.input :country %>
-  <%= f.input :description %> 
+  <%= f.input :description, label: 'About Me' %> 
 
   <%= f.button :submit, "Submit", class: "btn-primary"%>
 <% end %>

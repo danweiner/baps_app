@@ -1,0 +1,9 @@
+<%= simple_form_for([owner, pet]) do |f| %>  
+  <%= f.input :name %>
+  <%= f.input :age %>
+  <%= f.input :weight %>
+  <%= f.input :breed %>
+  <%= f.input :description %> 
+
+  <%= f.button :submit, "Submit", class: "btn-primary"%>
+<% end %>
