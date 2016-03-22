@@ -5,6 +5,10 @@
 
   <header>
     <h2><%= @pet.name %></h2>
+
+    <ul class="actions">
+      <li><%= link_to "Edit Pet Info", [:edit, @owner, @pet], class: "edit" %></li>
+    </ul>
   </header>
 
     <ul>

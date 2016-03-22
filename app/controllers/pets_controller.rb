@@ -21,6 +21,19 @@ class PetsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @pet.update(pet_params)
+      flash[:notice] = "Pet info has been updated"
+      redirect_to [@owner, @pet]
+    else
+      flash.now[:alert] = "Pet info has not been updated"
+      render :edit
+    end
+  end
+
   private
 
     def set_owner
