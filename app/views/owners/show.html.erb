@@ -1,10 +1,11 @@
 <header>
   <h1><%= @owner.name %></h1>
-
-  <ul class="actions">
-    <li><%= link_to "Edit Your Profile", edit_owner_path(@owner), class: "edit" %></li>
-    <li><%= link_to "Delete Your Profile", owner_path(@owner), method: :delete, data: { confirm: "Are you sure you want to delete your profile?" }, class: "delete" %></li>
-  </ul>
+  <% if current_user %>
+    <ul class="actions">
+      <li><%= link_to "Edit Your Profile", edit_owner_path(@owner), class: "edit" %></li>
+      <li><%= link_to "Delete Your Profile", admin_owner_path(@owner), method: :delete, data: { confirm: "Are you sure you want to delete your profile?" }, class: "delete" %></li>
+    </ul>
+  <% end %>
 </header>
 
 <h3>Hometown: <%= @owner.city %></h3>
@@ -13,10 +14,11 @@
 
 <header>
   <h2>BAPS Dogs</h2>
-
-  <ul class="actions">
-    <li><%= link_to "Upload Your Pet's Info", new_owner_pet_path(@owner), class: "new" %></li>
-  </ul>
+  <% if current_user %>
+    <ul class="actions">
+      <li><%= link_to "Upload Your Pet's Info", new_owner_pet_path(@owner), class: "new" %></li>
+   </ul>
+  <% end %>
 </header>
 
 <ul id="pets">

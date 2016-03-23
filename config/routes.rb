@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    root 'application#index'
+    resources :owners, only: [:destroy]
+  end
+
   devise_for :users
   root 'static_pages#home'
 
@@ -6,7 +11,7 @@ Rails.application.routes.draw do
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
 
-  resources :owners, :path => 'profiles' do
+  resources :owners, :path => 'profiles', except: [:destroy] do
     resources :pets
   end
 

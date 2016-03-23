@@ -1,4 +1,5 @@
 class OwnersController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @owners = Owner.all
@@ -40,13 +41,7 @@ class OwnersController < ApplicationController
     end
   end
 
-  def destroy
-    @owner = Owner.find(params[:id])
-    @owner.destroy
 
-    flash[:notice] = "Profile has been deleted"
-    redirect_to owners_path
-  end
 
   private
 

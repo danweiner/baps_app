@@ -1,6 +1,10 @@
 class PetsController < ApplicationController
   before_action :set_owner
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+
+  def index 
+  end
 
   def show
   end
@@ -52,7 +56,7 @@ class PetsController < ApplicationController
     end
 
     def pet_params
-      params.require(:pet).permit(:name, :age, :weight, :breed, :description)
+      params.require(:pet).permit(:name, :age, :weight, :breed, :description, :attachment)
     end
 
 end

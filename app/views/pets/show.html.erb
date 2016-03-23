@@ -4,12 +4,13 @@
   </header>
 
   <header>
-    <h2><%= @pet.name %></h2>
-
-    <ul class="actions">
-      <li><%= link_to "Edit Pet Info", [:edit, @owner, @pet], class: "edit" %></li>
-      <li><%= link_to "Remove Pet", [@owner, @pet], method: :delete, data: { confirm: "Are you sure you want to remove this pet?" }, class: "delete" %></li>
-    </ul>
+    <h2>Pet Name: <%= @pet.name %></h2>
+    <% if current_user %>
+      <ul class="actions">
+        <li><%= link_to "Edit Pet Info", [:edit, @owner, @pet], class: "edit" %></li>
+        <li><%= link_to "Remove Pet", [@owner, @pet], method: :delete, data: { confirm: "Are you sure you want to remove this pet?" }, class: "delete" %></li>
+      </ul>
+    <% end %>
   </header>
 
     <ul>
@@ -19,4 +20,15 @@
     </ul>
 
   <%= simple_format(@pet.description) %>
+
+  <% if @pet.attachment.present? %>
+    <h4>Attachment</h4>
+    <div class="attachment">
+      <p>
+        <%= link_to File.basename(@pet.attachment.url),
+          @pet.attachment.url %>
+          (<%= number_to_human_size(@pet.attachment.size) %>)
+      </p>
+    </div>
+  <% end %>
 </div>

@@ -4,6 +4,7 @@
   <%= f.input :weight %>
   <%= f.input :breed %>
   <%= f.input :description %> 
+  <%= f.input :attachment, as: :file, label: "File" %>
 
   <%= f.button :submit, "Submit", class: "btn-primary"%>
 <% end %>
