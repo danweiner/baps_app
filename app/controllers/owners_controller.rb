@@ -46,7 +46,7 @@ class OwnersController < ApplicationController
   private
 
     def owner_params
-      params.require(:owner).permit(:name, :city, :country, :description)
+      params.require(:owner).permit(:name, :city, :country, :description, :attachment, :attachment_cache)
     end
 
 end
