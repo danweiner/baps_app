@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323133114) do
+ActiveRecord::Schema.define(version: 20160323151809) do
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "file"
+    t.integer  "pet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "attachments", ["pet_id"], name: "index_attachments_on_pet_id"
 
   create_table "owners", force: :cascade do |t|
     t.string   "name"
@@ -23,6 +32,19 @@ ActiveRecord::Schema.define(version: 20160323133114) do
     t.string   "attachment"
   end
 
+  create_table "pet_images", force: :cascade do |t|
+    t.text     "caption"
+    t.integer  "pet_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  add_index "pet_images", ["pet_id"], name: "index_pet_images_on_pet_id"
+
   create_table "pets", force: :cascade do |t|
     t.string   "name"
     t.integer  "age"
@@ -30,9 +52,12 @@ ActiveRecord::Schema.define(version: 20160323133114) do
     t.string   "breed"
     t.text     "description"
     t.integer  "owner_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "attachment"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "pets", ["owner_id"], name: "index_pets_on_owner_id"

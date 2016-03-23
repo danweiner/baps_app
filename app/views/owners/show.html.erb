@@ -25,7 +25,7 @@
   <%= @owner.pets.each do |pet| %>
     <li>
       <!-- This is strange behavior -->
-      #<%= pet.id %> -
+      #<%= pet.id %> -                                                
       <%= link_to pet.name, [@owner, pet] %>
     </li>
   <% end %>

@@ -21,14 +21,7 @@
 
   <%= simple_format(@pet.description) %>
 
-  <% if @pet.attachment.present? %>
-    <h4>Attachment</h4>
-    <div class="attachment">
-      <p>
-        <%= link_to File.basename(@pet.attachment.url),
-          @pet.attachment.url %>
-          (<%= number_to_human_size(@pet.attachment.size) %>)
-      </p>
-    </div>
-  <% end %>
+  <%= image_tag @pet_image.photo.url(:medium) %>
+
+
 </div>

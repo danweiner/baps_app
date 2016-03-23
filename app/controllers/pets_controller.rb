@@ -11,6 +11,7 @@ class PetsController < ApplicationController
   
   def new
     @pet = @owner.pets.build
+    3.times { @pet.pet_images.build }
   end
 
   def create
@@ -26,6 +27,7 @@ class PetsController < ApplicationController
   end
 
   def edit
+    3.times { @pet.pet_images.build }
   end
 
   def update
@@ -56,7 +58,7 @@ class PetsController < ApplicationController
     end
 
     def pet_params
-      params.require(:pet).permit(:name, :age, :weight, :breed, :description, :attachment, :attachment_cache)
+      params.require(:pet).permit(:name, :age, :weight, :breed, :description, pets_images_attributes: [:photo, :caption])
     end
 
 end

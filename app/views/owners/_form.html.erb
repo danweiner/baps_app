@@ -1,7 +1,6 @@
 <%= simple_form_for(owner) do |f| %>  
   <%= f.input :name %>
   <%= f.input :city %>
-  <!-- Why is country raising an error? -->
   <%= f.input :country %>
   <%= f.input :description, label: 'About Me' %> 
   <%= f.input :attachment, as: :file, label: "File" %>
