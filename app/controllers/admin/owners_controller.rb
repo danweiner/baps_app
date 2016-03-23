@@ -1,6 +1,5 @@
 class Admin::OwnersController < Admin::ApplicationController
 
-
   def destroy
     @owner = Owner.find(params[:id])
     @owner.destroy
