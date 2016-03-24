@@ -3,5 +3,8 @@ class Owner < ActiveRecord::Base
 
   validates :name, presence: true
 
+  geocoded_by :city
+  after_validation :geocode
+
   mount_uploader :attachment, AttachmentUploader
 end
