@@ -1,0 +1,37 @@
+<header>
+  <h1>BAPS Alumni Dogs</h1>
+  <ul class="actions">
+    <li><%= link_to "Upload Your Pet's Info", new_pet_path, class: "new" %></li>
+  </ul>
+</header>
+
+<table class="table table-striped">
+  <tr>
+    <th></th>
+    <th>Pet Name</th>
+    <th>Age</th>
+    <th>Breed</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <td><%= image_tag pet.photo.url(:thumb), class: "list-photo" %></td>
+        <td><%= link_to pet.name, pet %></td>
+        <td><%= pet.age %></td>
+        <td><%= pet.weight %></td>
+        <td><%= pet.breed %></td>
+        <td><%= truncate(pet.description) %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to "edit", edit_pet_path(pet) %></td>
+        <% end %>
+        <% if user_signed_in? %>
+          <td><%= link_to "delete", pet_path(pet), method: :delete, data: {confirm: "Are you sure?"}%></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

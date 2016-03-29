@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comments/create'
+
   namespace :admin do
     root 'application#index'
     resources :owners, only: [:destroy]
@@ -11,9 +13,11 @@ Rails.application.routes.draw do
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
 
-  resources :owners, :path => 'profiles', except: [:destroy] do
-    resources :pets
-  end
+  resources :owners, :path => 'profiles', except: [:destroy] 
+  
+  resources :pets
+  resources :comments
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

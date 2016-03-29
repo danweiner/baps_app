@@ -1,17 +1,10 @@
-<%= simple_form_for([owner, pet]) do |f| %>  
+<%= simple_form_for(pet) do |f| %>  
   <%= f.input :name %>
   <%= f.input :age %>
-  <%= f.input :weight %>
+  <%= f.input :weight, label: 'Weight in lbs' %>
   <%= f.input :breed %>
   <%= f.input :description %>
   <%= f.input :photo, as: :file %>
-
-  <%= f.simple_fields_for :pet_images do |builder| %>
-    <% if builder.object.new_record? %>
-        <%= builder.input :caption %>
-        <%= builder.input :photo %>
-    <% end %>
-  <% end %>
 
   <%= f.button :submit, "Submit", class: "btn-primary"%>
 <% end %>

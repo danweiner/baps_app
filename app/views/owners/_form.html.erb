@@ -1,10 +1,10 @@
 <%= simple_form_for(owner) do |f| %>  
   <%= f.input :name %>
-  <%= f.input :city %>
+  <%= f.input :address, label: :City %>
   <%= f.input :country %>
+  <%= f.association :pets %>
   <%= f.input :description, label: 'About Me' %> 
-  <%= f.input :attachment, as: :file, label: "File" %>
-  <%= f.input :attachment_cache, label: "Attached Files" %>
+  <%= f.input :photo, as: :file %>
 
   <%= f.button :submit, "Submit", class: "btn-primary"%>
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323200007) do
+ActiveRecord::Schema.define(version: 20160329153125) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "file"
@@ -22,16 +22,34 @@ ActiveRecord::Schema.define(version: 20160323200007) do
 
   add_index "attachments", ["pet_id"], name: "index_attachments_on_pet_id"
 
+  create_table "comments", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "pet_id"
+  end
+
+  add_index "comments", ["owner_id"], name: "index_comments_on_owner_id"
+  add_index "comments", ["pet_id"], name: "index_comments_on_pet_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
   create_table "owners", force: :cascade do |t|
     t.string   "name"
-    t.string   "city"
     t.string   "country"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "attachment"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "address"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "pet_images", force: :cascade do |t|

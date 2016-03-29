@@ -36,6 +36,8 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  API_1 = "AIzaSyBUh8VMguvupGAeq2BYb9o518G3rW6PqI4"
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

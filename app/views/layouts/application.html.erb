@@ -36,6 +36,12 @@
           <li class="<%= "active" if current_page? ("/about") %>">
             <%= link_to "About", about_path %>
           </li>
+          <li class="<%= "active" if current_page? ("/profiles") %>">
+            <%= link_to "Profiles", owners_path %>
+          </li>
+          <li class="<%= "active" if current_page? ("/pets") %>">
+            <%= link_to "Pets", pets_path %>
+          </li>
         </ul>
         <% if user_signed_in? %>
           <div class="navbar-right">
@@ -61,7 +67,7 @@
       </div>
     <% end %>
     <%= yield %>
-    <footer class="footer">
+    <footer class="footer navbar-static-bottom">
       <small>
       The <a href="http://www.shindogs.org/">Busan Abandoned Pet Sanctuary</a>
       </small>

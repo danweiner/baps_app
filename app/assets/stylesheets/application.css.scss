@@ -22,6 +22,11 @@
 @import "admin/application";
 @import "responsive";
 
+.center {
+  text-align: center;
+  margin-top: 20px;
+}
+
 header {
   @extend .page-header;
   position: relative;
@@ -86,9 +91,9 @@ body {
   padding-top: 70px;
 }
 
-a.btn.btn-success.navbar-right {
+a.btn.btn-success {
   margin-top: 8px;
-  margin-left: 5px;
+  margin-right: 5px;
   padding-right: 6px;
   padding-left: 6px;
 }

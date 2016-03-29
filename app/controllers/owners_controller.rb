@@ -11,6 +11,8 @@ class OwnersController < ApplicationController
 
   def show
     @owner = Owner.find(params[:id])
+    @comment = Comment.new
+    @comments = @owner.comments.order(created_at: :desc)
   end
 
   def new
@@ -45,12 +47,20 @@ class OwnersController < ApplicationController
     end
   end
 
+  def destroy
+    @owner = Owner.find(params[:id])
+    @owner.destroy
+    flash[:notice] = "Owner info has been deleted"
+
+    redirect_to owners_path
+  end
+
 
 
   private
 
     def owner_params
-      params.require(:owner).permit(:name, :city, :country, :description, :attachment, :attachment_cache)
+      params.require(:owner).permit(:name, :address, :pets, :country, :description, :photo)
     end
 
 end

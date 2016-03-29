@@ -1,27 +1,24 @@
-<div id="pet">
-  <header>
-    <h1><%= @owner.name %></h1>
-  </header>
+<header>
+  <h1><%= @pet.name %> </h1>
+</header>
 
-  <header>
-    <h2>Pet Name: <%= @pet.name %></h2>
-    <% if current_user %>
-      <ul class="actions">
-        <li><%= link_to "Edit Pet Info", [:edit, @owner, @pet], class: "edit" %></li>
-        <li><%= link_to "Remove Pet", [@owner, @pet], method: :delete, data: { confirm: "Are you sure you want to remove this pet?" }, class: "delete" %></li>
-      </ul>
-    <% end %>
-  </header>
-
-    <ul>
-      <li>Age: <%= @pet.age %></li>
-      <li>Weight: <%= @pet.weight %> lbs.</li>
-      <li>Breed: <%= @pet.breed %></li>
+<header>
+  <h2>About <%= @pet.name %></h2>
+  <% if current_user %>
+    <ul class="actions">
+      <li><%= link_to "Edit Pet Info", [:edit, @owner, @pet], class: "edit" %></li>
+      <li><%= link_to "Remove Pet", [@owner, @pet], method: :delete, data: { confirm: "Are you sure you want to remove this pet?" }, class: "delete" %></li>
     </ul>
+  <% end %>
+</header>
 
-  <%= simple_format(@pet.description) %>
+  <ul>
+    <li>Age: <%= @pet.age %></li>
+    <li>Weight: <%= @pet.weight %> lbs.</li>
+    <li>Breed: <%= @pet.breed %></li>
+  </ul>
 
-  <%= image_tag @pet_image.photo.url(:medium) %>
+<%= simple_format(@pet.description) %>
 
+<%= image_tag @pet.photo.url(:medium) %>
 
-</div>
