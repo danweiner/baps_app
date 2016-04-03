@@ -3,10 +3,7 @@ class OwnersController < ApplicationController
 
   def index
     @owners = Owner.all
-    @hash = Gmaps4rails.build_markers(@owners) do |owner, marker|
-      marker.lat owner.latitude
-      marker.lng owner.longitude
-    end
+
   end
 
   def show
