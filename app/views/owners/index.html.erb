@@ -21,7 +21,6 @@
         <td><%= image_tag owner.photo.url(:thumb), class: "list-photo" %></td>
         <td><%= link_to owner.name, owner %></td>
         <td><%= owner.address %></td>
-        <td><%= owner.country %></td>
         <td><%= truncate(owner.description) %></td>
         <% if user_signed_in? %>
           <td><%= link_to "edit", edit_owner_path(owner) %></td>

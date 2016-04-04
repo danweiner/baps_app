@@ -1,7 +1,6 @@
 <%= simple_form_for(owner) do |f| %>  
   <%= f.input :name %>
-  <%= f.input :address, label: :City %>
-  <%= f.input :country %>
+  <%= f.input :address, label: 'City, Country' %>
   <%= f.association :pets %>
   <%= f.input :description, label: 'About Me' %> 
   <%= f.input :photo, as: :file %>
